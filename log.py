@@ -4,12 +4,12 @@ from PyQt5 import uic
 from PyQt5.QtGui import QPixmap,QMovie,QStandardItemModel,QStandardItem
 from PyQt5.QtCore import QUrl
 from PyQt5.QtMultimedia import QMediaPlayer,QMediaContent,QMediaPlaylist,QMediaMetaData
-
 import sys
 class mp3(QMainWindow):
     def __init__(self):
         super().__init__()
         self.ui = uic.loadUi('start.ui')
+        self.ui.setWindowTitle('MP3')
         self.player = QMediaPlayer(self)
         self.list = QMediaPlaylist(self.player)
 
@@ -22,7 +22,7 @@ class mp3(QMainWindow):
         self.list.setPlaybackMode(QMediaPlaylist.Loop)
 
         self.plays()
-        print(self.files)
+        #print(self.files)
         self.ui.co.addItems(self.clear_list)
         self.num = -1
         self.ui.show()
@@ -83,10 +83,12 @@ class mp3(QMainWindow):
         self.list.previous()
         self.ui.name_music.setText(self.clear_list[self.list.currentIndex()])
         self.ui.name_music.setStyleSheet('color: white')
+        self.ui.co.setCurrentIndex(self.list.currentIndex())
     def next(self):
         self.list.next()
         self.ui.name_music.setText(self.clear_list[self.list.currentIndex()])
         self.ui.name_music.setStyleSheet('color: white')
+        self.ui.co.setCurrentIndex(self.list.currentIndex())
     def volm(self,event):
         self.ui.loudness.setText(str(event))
         self.ui.loudness.setStyleSheet('color: white')
