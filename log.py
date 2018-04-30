@@ -1,9 +1,10 @@
 import os
 from PyQt5.QtWidgets import QMainWindow,QApplication
 from PyQt5 import uic
-from PyQt5.QtGui import QPixmap,QMovie,QStandardItemModel,QStandardItem
+from PyQt5.QtGui import QStandardItem
 from PyQt5.QtCore import QUrl
 from PyQt5.QtMultimedia import QMediaPlayer,QMediaContent,QMediaPlaylist,QMediaMetaData
+
 import sys
 class mp3(QMainWindow):
     def __init__(self):
@@ -26,10 +27,6 @@ class mp3(QMainWindow):
         self.ui.co.addItems(self.clear_list)
         self.num = -1
         self.ui.show()
-
-
-    def nastr(self):
-        pass
 
     def list_control(self):
         f = 'mp3'
